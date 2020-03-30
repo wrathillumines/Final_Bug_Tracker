@@ -1,0 +1,19 @@
+@{
+    ViewBag.Title = "MapsVector";
+}
+<div class="content-heading">
+   <div>Vector Maps
+      <small>Resolution independent maps</small>
+   </div>
+</div>
+<div data-vector-map="" data-height="700" data-map-name="world_mill_en"></div>
+@section Styles {
+
+    <link href="@Styles.Url("~/Vendor/ika.jvectormap/jquery-jvectormap-1.2.2.css")" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="@Scripts.Url("~/Vendor/ika.jvectormap/jquery-jvectormap-1.2.2.min.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/ika.jvectormap/jquery-jvectormap-world-mill-en.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/ika.jvectormap/jquery-jvectormap-us-mill-en.js")"></script>
+}
+

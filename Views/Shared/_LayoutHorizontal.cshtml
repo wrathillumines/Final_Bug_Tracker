@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+    <!-- =============== VENDOR STYLES ===============-->
+    <link href="@Styles.Url("~/Vendor/@fortawesome/fontawesome-free/css/brands.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/@fortawesome/fontawesome-free/css/regular.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/@fortawesome/fontawesome-free/css/solid.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/@fortawesome/fontawesome-free/css/fontawesome.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/simple-line-icons/css/simple-line-icons.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/animate.css/animate.css")" rel="stylesheet" />
+    <link href="@Styles.Url("~/Vendor/whirl/dist/whirl.css")" rel="stylesheet" />
+    <!-- =============== PAGE VENDOR STYLES =============== -->
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link href="@Styles.Url("~/Content/css/bootstrap.css")" rel="stylesheet" type="text/css" id="bscss" />
+    <!-- =============== APP STYLES ===============-->
+    <link href="@Styles.Url("~/Content/css/app.css")" rel="stylesheet" type="text/css" id="maincss" />
+    <link href="@Styles.Url("~/Content/mvc-override.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="layout-h">
+    <div class="wrapper">
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+            @Html.Partial("_TopNavbarHorizontal")
+        </header>
+        <!-- offsidebar-->
+        <aside class="offsidebar d-none">
+            @Html.Partial("_Offsidebar")
+        </aside>
+        <!-- Main section-->
+        <section class="section-container">
+            <!-- Page content-->
+            <div class="content-wrapper">
+                @RenderBody()
+            </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+            @Html.Partial("_Footer")
+        </footer>
+    </div>
+    @if (IsSectionDefined("BodyArea"))
+        {@RenderSection("BodyArea", required: false)}
+    <!-- =============== VENDOR SCRIPTS ===============-->
+    <script src="@Scripts.Url("~/Vendor/modernizr/modernizr.custom.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/js-storage/js.storage.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/screenfull/dist/screenfull.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/i18next/i18next.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/i18next-xhr-backend/i18nextXHRBackend.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/jquery/dist/jquery.js")"></script>
+    <script src="@Scripts.Url("~/vendor/popper.js/dist/umd/popper.js")"></script>
+    <script src="@Scripts.Url("~/Vendor/bootstrap/dist/js/bootstrap.js")"></script>
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    @RenderSection("scripts", required: false)
+    <!-- =============== APP SCRIPTS ===============-->
+    <script src="@Scripts.Url("~/Scripts/app.js")"></script>
+</body>
+</html>
