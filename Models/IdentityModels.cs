@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -9,6 +9,23 @@ namespace Final_Bug_Tracker.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string DisplayName { get; set; }
+        public string AvatarUrl { get; set; }
+        public virtual ICollection<Projects> Projects { get; set; }
+        public virtual ICollection<Tickets> Tickets { get; set; }
+        public virtual ICollection<TicketAttachments> TicketAttachments { get; set; }
+        public virtual ICollection<TicketComments> TicketComments { get; set; }
+        public virtual ICollection<TicketHistories> TicketHistories { get; set; }
+        public ApplicationUser()
+        {
+            Projects = new HashSet<Projects>();
+            Tickets = new HashSet<Tickets>();
+            TicketAttachments = new HashSet<TicketAttachments>();
+            TicketComments = new HashSet<TicketComments>();
+            TicketHistories = new HashSet<TicketHistories>();
+        }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
